@@ -13,7 +13,7 @@ def load_data(csv_src, img_dir_src):
         upscale_img = cv2.resize(img, (224, 224))
         img_tensor = transform(upscale_img).float()
         x.append(img_tensor)
-        y.append(row[2])
+        y.append(row[2] - 1)
     return (torch.stack(x, dim=0),
            torch.tensor(y, dtype=torch.int64))
 
